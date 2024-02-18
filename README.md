@@ -2,7 +2,7 @@
 A text comparison tool powered by NLP.
 
 ## Usage
-Compare two texts and highlight differences (e.g., word, sentence, or paragraph addition/deletion). However, sentence or paragraph reordering should not be considered "same".
+Compare two texts and highlight differences (e.g., word, sentence, or paragraph addition/deletion). However, sentence or paragraph reordering should not be considered "different".
 
 ## Motivation 
 Traditional diff tools often require the original and edited texts to have the same structure/order. When the structure/order differs, the algorithm marks the whole text as different. To overcome this, instead of comparing the whole text, we compare pairs of similar sentences.
