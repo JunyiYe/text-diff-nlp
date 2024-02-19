@@ -1,0 +1,11 @@
+    text1 = """Apple 14 is the latest iteration in Apple's line of innovative products, boasting cutting-edge technology and sleek design. Key features of the Apple 14 include:
+
+Robust security features to safeguard user data and ensure privacy in an increasingly digital world. * Enhanced processing power, ensuring seamless multitasking and swift performance. Stunning display with vibrant colors and crisp resolution, perfect for immersive media consumption. Advanced camera system for capturing high-quality photos and videos, complete with innovative photography features. Extended battery life, allowing users to stay connected and productive throughout the day."""
+
+    text2 = """Apple 14 is the latest iteration in Apple's line of innovative products, boasting cutting-edge technology and sleek design. Key features of the Apple 14 include:
+
+Enhanced processing power, ensuring seamless multitasking and swift performance.
+Stunning display with vibrant colors and crisp resolution, perfect for immersive media consumption.
+Advanced camera system for capturing high-quality photos and videos, complete with innovative photography features.
+Extended battery life, allowing users to stay connected and productive throughout the day.
+Robust security features to safeguard user data and ensure privacy in an increasingly digital world."""
