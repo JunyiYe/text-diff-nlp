@@ -11,6 +11,23 @@ def tokenize_sentences(text):
     # Extract sentences and strip leading/trailing spaces
     return [sent.text.strip() for sent in doc.sents]
 
+def tokenize_sentences_with_space(text):
+    """
+    Tokenizes the input text using spaCy, including spaces as separate tokens.
+
+    :param text: The input text to tokenize.
+    :return: A list of tokens, including spaces.
+    """
+    doc = nlp(text)
+    tokens = []
+
+    for token in doc:
+        tokens.append(token.text)
+        if token.whitespace_:
+            tokens.append(' ')
+    
+    return tokens
+
 # Function to find similar sentence pairs between two texts
 def find_similar_pairs(text1, text2, threshold=0.50):
     # Tokenize both texts into sentences
@@ -52,10 +69,10 @@ def highlight_differences(original, edited):
     for word in diff:
         if word.startswith("- "):
             # Words in original but not in edited (highlight in red)
-            reconstructed_text += f"\033[91m{word[2:]}\033[0m "
+            reconstructed_text += f"\033[91m{word[2:]}\033[0m"
         elif word.startswith("  "):
             # Common words (highlight in blue)
-            reconstructed_text += f"\033[94m{word[2:]}\033[0m "
+            reconstructed_text += f"\033[94m{word[2:]}\033[0m"
 
     return reconstructed_text.strip()
 
@@ -67,13 +84,15 @@ def apply_highlighting(text, sentence, highlighted):
 # Function to highlight text based on similar sentence pairs
 def highlight(text1, text2, similar_pairs):
     for sent1, sent2 in similar_pairs:
-        words_sent1 = sent1.split()
-        words_sent2 = sent2.split()
+        words_sent1 = tokenize_sentences_with_space(sent1)
+        words_sent2 = tokenize_sentences_with_space(sent2)
 
         # Highlight differences for both sentences
         highlighted_sent1 = highlight_differences(words_sent1, words_sent2)
         highlighted_sent2 = highlight_differences(words_sent2, words_sent1)
-
+        # print(text1)
+        # print(sent1)
+        # print(highlighted_sent1)
         # Apply the highlighted text to the original texts
         text1 = apply_highlighting(text1, sent1, highlighted_sent1)
         text2 = apply_highlighting(text2, sent2, highlighted_sent2)
